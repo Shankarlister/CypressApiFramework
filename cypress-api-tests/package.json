@@ -1,0 +1,44 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "runStep": "npx ts-node src/runLocalStep.ts",
+    "build": "mkdirp dist && npm run compile",
+    "lint": "tslint --project tsconfig.json",
+    "esLint": "eslint . --ext .ts",
+    "prettier-format": "prettier --config .prettierrc.yml 'cypress/**/*.spec.ts' --write",
+    "clean-reports": "rm -rf cypress/reports",
+    "test": "npx cypress run",
+    "merge-report": "npx mochawesome-merge cypress/reports/*.json > cypress/reports/TestReportOutput.json",
+    "generate-report": "npx mochawesome-report-generator -f report -o cypress/reports",
+    "after:tests": "npm run merge-report; npm run generate-report",
+    "marge-tests": "npx marge cypress/reports/TestReportOutput.json --reportDir cypress/reports --inline",
+    "cypress-test-api": "npm run clean-reports; npm run test; npm run after:tests; npm run marge-tests"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
+    "babel-eslint": "^10.1.0",
+    "cypress": "^6.9.1",
+    "cypress-multi-reporters": "^1.5.0",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-cypress": "^2.11.3",
+    "eslint-plugin-prettier": "^3.1.4",
+    "mocha": "^8.4.0",
+    "mochawesome": "^6.2.2",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.2.0",
+    "prettier": "2.2.1",
+    "ts-node": "8.10.1",
+    "tslint": "6.1.2",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "@types/jest": "^26.0.22"
+  }
+}

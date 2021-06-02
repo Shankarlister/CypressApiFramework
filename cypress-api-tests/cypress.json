@@ -1,0 +1,19 @@
+{
+ 
+    "defaultCommandTimeout": 40000,
+    "execTimeout": 40000,
+    "pageLoadTimeout": 40000,
+    "requestTimeout": 40000,
+    "responseTimeout": 40000,
+    
+    "reporter": "mochawesome",
+    "reporterOptions": {
+    "charts": true,
+    "overwrite": false,
+    "html": false,
+    "json": true,
+    "reportDir": "cypress/reports"
+    },
+    "video": false
+ }
+
