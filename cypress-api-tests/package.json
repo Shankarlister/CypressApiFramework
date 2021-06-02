@@ -1,8 +1,11 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Cypress Api Generic Framework",
   "main": "index.js",
+  "contributors": [
+    "Shanakar <shankar.arunodhayam@listertechnologies.com>"
+  ],
   "scripts": {
     "runStep": "npx ts-node src/runLocalStep.ts",
     "build": "mkdirp dist && npm run compile",
